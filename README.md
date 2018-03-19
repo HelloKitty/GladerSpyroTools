@@ -22,7 +22,7 @@ There are many ways to grab and use these tools.
 
 ### Vertex Coloring
 
-**WARNING:** Make sure you disable mesh compression, vertex welding and mesh optimization for all .M assets. It's possible to lose some vertex data this way. If you encounter coloring problems open an issue on this repository.
+**WARNING:** Make sure you disable mesh compression, vertex welding and mesh optimization for all .M assets. It's possible to lose some vertex data this way. If you encounter coloring problems open an issue on this repository. Also use **GAMMA COLOR SPACE** otherwise your scenes will look wrong. Google how to change this to Unity3D.
 
 GladerSpyroTools contains a Unity3D editor extension for adding vertex colors to meshes from Spyro.
 
