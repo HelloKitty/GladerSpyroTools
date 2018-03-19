@@ -179,6 +179,9 @@ namespace GladerSpyroTools.Editor
 
 				AssetDatabase.SaveAssets();
 			}
+
+			//We need to mark the scene dirty because we actually changed meshes
+			EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
 		}
 
 		private Color[] GenerateColorsArray(IList<GameObject> vertexColoredGameObjectList, IList<GameObject> uvwSwappedVertexColoredGameObjectList, int i, Mesh tm, Mesh vm, Mesh uvwvm, Vector2[] textureCoords, Vector2[] uwvSwappedTextureCoords, Vector3[] tmVertices, Vector3[] vmVertices, Vector3[] uvwvmVertices)
