@@ -1,17 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueADT.Models.Common", "src\TrueADT.Models.Common\TrueADT.Models.Common.csproj", "{F62ACA64-F7FD-4EB9-94EE-1B7C63245071}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FECD58C2-80CF-42A7-A78F-D6B02AB520BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueADT.Models.Wotlk", "src\TrueADT.Models.Wotlk\TrueADT.Models.Wotlk.csproj", "{2E4FE79F-AFD2-43C0-B470-F0B1FE417325}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9DCAFC12-C94B-4729-8D1E-B38FBA94EA60}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueADT.Logger.Test", "tests\TrueADT.Logger.Test\TrueADT.Logger.Test.csproj", "{1CF681FE-BB95-44C6-B81C-EBFDA3A14C0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GladerSpyroTools.Editor", "src\GladerSpyroTools.Editor\GladerSpyroTools.Editor.csproj", "{9CDF7950-856F-4A99-B6DC-835DC026244D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,26 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F62ACA64-F7FD-4EB9-94EE-1B7C63245071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F62ACA64-F7FD-4EB9-94EE-1B7C63245071}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F62ACA64-F7FD-4EB9-94EE-1B7C63245071}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F62ACA64-F7FD-4EB9-94EE-1B7C63245071}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E4FE79F-AFD2-43C0-B470-F0B1FE417325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E4FE79F-AFD2-43C0-B470-F0B1FE417325}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E4FE79F-AFD2-43C0-B470-F0B1FE417325}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E4FE79F-AFD2-43C0-B470-F0B1FE417325}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1CF681FE-BB95-44C6-B81C-EBFDA3A14C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CF681FE-BB95-44C6-B81C-EBFDA3A14C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CF681FE-BB95-44C6-B81C-EBFDA3A14C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CF681FE-BB95-44C6-B81C-EBFDA3A14C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CDF7950-856F-4A99-B6DC-835DC026244D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CDF7950-856F-4A99-B6DC-835DC026244D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CDF7950-856F-4A99-B6DC-835DC026244D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CDF7950-856F-4A99-B6DC-835DC026244D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F62ACA64-F7FD-4EB9-94EE-1B7C63245071} = {FECD58C2-80CF-42A7-A78F-D6B02AB520BB}
-		{2E4FE79F-AFD2-43C0-B470-F0B1FE417325} = {FECD58C2-80CF-42A7-A78F-D6B02AB520BB}
-		{1CF681FE-BB95-44C6-B81C-EBFDA3A14C0B} = {9DCAFC12-C94B-4729-8D1E-B38FBA94EA60}
+		{9CDF7950-856F-4A99-B6DC-835DC026244D} = {FECD58C2-80CF-42A7-A78F-D6B02AB520BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E3B6F82-79A3-4BBC-8A78-ECC5B5C13B5D}
