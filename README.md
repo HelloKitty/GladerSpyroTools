@@ -8,8 +8,10 @@ There are many ways to grab and use these tools.
 
 - You could download the source and build this solution.
 - You could download the source and drop it into the Editor folder in Unity3D
-- You can download a unity package from the release tab [here](todo)
-- You can download a compiled assembly and drop it into the editor from the download tab [here](todo)
+- You can download a Unity Pacakge from the release tab containing the source: [here](https://github.com/HelloKitty/GladerSpyroTools/releases/download/0.0.1/GladerSpyroTools_source_0.0.1.unitypackage)
+- You can download a Unity Package from the release tab containing a compiled assembly [here](https://github.com/HelloKitty/GladerSpyroTools/releases/download/0.0.1/GladerSpyroTools_dll_0.0.1.unitypackage)
+
+[Releases](https://github.com/HelloKitty/GladerSpyroTools/releases)
 
 ## Features
 - [x] Vertex Coloring
@@ -32,7 +34,7 @@ GladerSpyroTools contains a Unity3D editor extension for adding vertex colors to
 5. Assign Textured scene object
 6. Assign vertex color OBJ (known as .M or .S for Skybox)
 7. Assigned uvswapped vertex color OBJ (known as .M_uvswapped or .S_uvswapped)
-8. Hit **Combine Data*!
+8. Hit **Combine Data**!
 
 #### Options
 
