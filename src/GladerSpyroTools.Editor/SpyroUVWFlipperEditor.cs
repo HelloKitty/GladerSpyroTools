@@ -63,6 +63,9 @@ namespace GladerSpyroTools.Editor
 				string newPath = string.Format("{0}{1}.obj", assetPath.TrimEnd(".obj".ToCharArray()), "_uvwswapped");
 
 				File.WriteAllLines(newPath, lines);
+
+				//We have to update the asset database since we created a new OBJ
+				AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
 			}
 		}
 	}
