@@ -44,12 +44,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetSavingService.cs" />
     <Compile Include="IUVToColorConversionStrategy.cs" />
     <Compile Include="ObjGroupModel.cs" />
     <Compile Include="ObjParser.cs" />
     <Compile Include="ParsedObjModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpyroLevelVertexColorEditor.cs" />
+    <Compile Include="SpyroTextureArray2DEditor.cs" />
     <Compile Include="SpyroUVWFlipperEditor.cs" />
     <Compile Include="StandardUVToColorConversionStrategy.cs" />
     <Compile Include="SwappedUVWToColorConversionStrategy.cs" />

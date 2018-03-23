@@ -15,11 +15,11 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-Shader "Spyro/SpyroVertexColorStandardMap" 
+Shader "Spyro/SpyroVertexColorStandardMapDX11TextureArray" 
 {
 	Properties 
 	{
-		_MainTex ("Albedo (RGB)", 2D) = "white" {}
+		_MainTex ("Albedo Texture2DArray", 2DArray) = "" {}
 		_FlatAmbient ("Flat Ambient Lighting", Float) = 0.25
 		_VertexColorAmbient ("Vertex Colored Ambient Lighting", Float) = 1.7
 		_SmoothnessMultiplier ("Smoothness Albedo Alpha Multiplier", Float) = 1.0
@@ -47,10 +47,12 @@ Shader "Spyro/SpyroVertexColorStandardMap"
 		#pragma shader_feature _MAP_EMISSION_ON
 		#pragma shader_feature _MAP_TEXTURE_ANIM_ON
 
-		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 3.0
+		//This target is required for Texture2DArray's
+		#pragma target 3.5
 
-		sampler2D _MainTex;
+		//This macro creates the sampler
+		UNITY_DECLARE_TEX2DARRAY(_MainTex);
+
 		half3 _VertexColor;
 		uniform half _FlatAmbient;
 		uniform half _VertexColorAmbient;
@@ -84,10 +86,20 @@ Shader "Spyro/SpyroVertexColorStandardMap"
 
 		void surf (Input IN, inout SurfaceOutputStandardSpecular o)
 		{
-			#if _MAP_TEXTURE_ANIM_ON
-			int tileIndexX = (int)(IN.uv_MainTex.x * 16.0f);
-			int tileIndexY = (int)(IN.uv_MainTex.y * 8.0f);
+			//TODO: Should we change the UVs of the mesh
+			//For this DX11 texture array shader we always need to know the index
+			//Unless we change the UVs of the mesh
+			int tileIndexX = (int)(IN.uv_MainTex.x * 16);
+			int tileIndexY = (int)(IN.uv_MainTex.y * 8);
 
+			if (IN.uv_MainTex.y < 0.0f || IN.uv_MainTex.x < 0.0f || tileIndexX < 0 || tileIndexY < 0)
+			{
+				clip(-1);
+				return;
+			}
+
+			//TODO: Support emission on Texture2DArray
+			#if _MAP_TEXTURE_ANIM_ON
 			//This is equivalent non-branching
 			/*int booleanIsAnimatedTileRange = clamp(((int)(tileIndexX / 7) - (int)(tileIndexX / 8) * 100), 0.0f, 1.0f) * clamp(((int)(tileIndexY / 6) - (int)(tileIndexY / 7) * 100), 0.0f, 1.0f);
 
@@ -99,12 +111,14 @@ Shader "Spyro/SpyroVertexColorStandardMap"
 				IN.uv_MainTex = float2(WrapMinMax(IN.uv_MainTex.x + _Time.x * _AnimationInformation.z, _AnimationInformation.x * 0.0625f, (_AnimationInformation.x + 1.0f) * 0.0625f), WrapMinMax(IN.uv_MainTex.y + _Time.x * _AnimationInformation.w, _AnimationInformation.y * 0.125f, (_AnimationInformation.y + 1.0f) * 0.125f));
 			#endif
 
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
+			float3 arrayUvs = float3((IN.uv_MainTex.x - tileIndexX * 0.0625f) / 0.0625f, (IN.uv_MainTex.y - tileIndexY * 0.125f) / 0.125f, tileIndexY * 16 + tileIndexX);
+
+			fixed4 c = UNITY_SAMPLE_TEX2DARRAY(_MainTex, arrayUvs);
 			
-			
+			//TODO: Support emission on Texture2DArray
 			//If the user requested emission then we should use it
 			#if _MAP_EMISSION_ON
-			fixed3 em = tex2D(_EmissionMask, IN.uv_MainTex);
+			fixed3 em = tex2D(_EmissionMask, arrayUvs);
 			o.Emission = em * _EmissionStrength;
 			#endif
 

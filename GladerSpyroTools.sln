@@ -7,6 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FECD58C2-80C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GladerSpyroTools.Editor", "src\GladerSpyroTools.Editor\GladerSpyroTools.Editor.csproj", "{9CDF7950-856F-4A99-B6DC-835DC026244D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shaders", "Shaders", "{7E5711C1-62FB-49ED-867F-135A4278C85C}"
+	ProjectSection(SolutionItems) = preProject
+		src\Shaders\SpyroVertexColorSkybox.shader = src\Shaders\SpyroVertexColorSkybox.shader
+		src\Shaders\SpyroVertexColorStandardMap.shader = src\Shaders\SpyroVertexColorStandardMap.shader
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9CDF7950-856F-4A99-B6DC-835DC026244D} = {FECD58C2-80CF-42A7-A78F-D6B02AB520BB}
+		{7E5711C1-62FB-49ED-867F-135A4278C85C} = {FECD58C2-80CF-42A7-A78F-D6B02AB520BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E3B6F82-79A3-4BBC-8A78-ECC5B5C13B5D}

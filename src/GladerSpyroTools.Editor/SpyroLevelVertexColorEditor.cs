@@ -161,27 +161,24 @@ namespace GladerSpyroTools.Editor
 
 		private void SetAsNewMeshAssetsAndSave(List<GameObject> texturedGameObjectList)
 		{
+			//Creates the directory these meshes will go into
+			AssetDirectoryService vertexColoredGameObjectDirectoryService = new AssetDirectoryService(this.vertexColoredGameObject);
+			vertexColoredGameObjectDirectoryService.CreateSubFolder(vertexColoredGameObjectDirectoryService.GetAssetDirectory(), "VertexColoredMeshes");
+
 			foreach(MeshFilter texturedMeshFilter in texturedGameObjectList
 				.Select(go => go.GetComponent<MeshFilter>()))
 			{
 				//Create a copy of the mesh and set it as the new mesh
 				Mesh newMesh = Object.Instantiate(texturedMeshFilter.sharedMesh);
-				string path = Path.GetDirectoryName(AssetDatabase.GetAssetPath(vertexColoredGameObject));
 
-				if(!Directory.Exists(Application.dataPath + path.TrimStart("Assets".ToCharArray()) + "/VertexColoredMeshes"))
-				{
-					AssetDatabase.CreateFolder(path, "VertexColoredMeshes");
-					AssetDatabase.SaveAssets();
-				}
+				AssetDirectoryService newMeshAssetDirectoryService = new AssetDirectoryService(newMesh);
 
-				AssetDatabase.CreateAsset(newMesh, Path.GetDirectoryName(AssetDatabase.GetAssetPath(vertexColoredGameObject)) + @"/VertexColoredMeshes/" + newMesh.name + ".asset");
+				newMeshAssetDirectoryService.SaveAsset(Path.Combine(vertexColoredGameObjectDirectoryService.GetAssetDirectory(), "VertexColoredMeshes"), newMesh.name);
+
 				texturedMeshFilter.sharedMesh = newMesh;
 
 				AssetDatabase.SaveAssets();
 			}
-
-			//We need to mark the scene dirty because we actually changed meshes
-			EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
 		}
 
 		private Color[] GenerateColorsArray(IList<GameObject> vertexColoredGameObjectList, IList<GameObject> uvwSwappedVertexColoredGameObjectList, int i, Mesh tm, Mesh vm, Mesh uvwvm, Vector2[] textureCoords, Vector2[] uwvSwappedTextureCoords, Vector3[] tmVertices, Vector3[] vmVertices, Vector3[] uvwvmVertices)
